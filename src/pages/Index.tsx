@@ -58,16 +58,16 @@ const Index = () => {
             key={i}
             className="absolute rounded-full bg-white"
             style={{
-              width: Math.random() * 3 + 0.5 + "px",
-              height: Math.random() * 3 + 0.5 + "px",
-              top: Math.random() * 100 + "%",
-              left: Math.random() * 100 + "%",
+              width: Math.random() * 3 + 0.5 + 'px',
+              height: Math.random() * 3 + 0.5 + 'px',
+              top: Math.random() * 100 + '%',
+              left: Math.random() * 100 + '%',
               animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`,
             }}
           />
         ))}
       </div>
-
+      
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         <div className="relative w-full max-w-6xl aspect-square flex items-center justify-center">
           {/* Central Header */}
@@ -78,7 +78,9 @@ const Index = () => {
                   PMverse
                 </span>
               </h1>
-              <p className="text-sm md:text-base text-gray-400 font-light">AI-Powered Product Management Suite</p>
+              <p className="text-sm md:text-base text-gray-400 font-light">
+                AI-Powered Product Management Suite
+              </p>
             </div>
           </div>
 
@@ -87,28 +89,21 @@ const Index = () => {
             const Icon = tool.icon;
             const angle = (index * 360) / tools.length;
             const orbitRadius = 280;
-
+            
             return (
-              <Link
-                key={tool.path}
+              <Link 
+                key={tool.path} 
                 to={tool.path}
-                className="absolute group pointer-events-auto left-1/2 top-1/2"
-                style={{
-                  animation: "orbit 50s linear infinite",
-                  animationDelay: `-${(angle / 360) * 50}s`,
-                  transformOrigin: "center",
-                }}
+                className="absolute group pointer-events-auto"
               >
-                <div
+                <div 
                   className="relative flex flex-col items-center gap-3"
                   style={{
-                    transform: `translateX(${orbitRadius}px)`,
-                    animation: "orbit 50s linear infinite reverse",
-                    animationDelay: `-${(angle / 360) * 50}s`,
+                    transform: `rotate(${angle}deg) translateX(${orbitRadius}px) rotate(-${angle}deg)`,
                   }}
                 >
                   {/* Planet */}
-                  <div
+                  <div 
                     className={`${tool.size} rounded-full bg-gradient-to-br ${tool.planetColor} ${tool.glowColor} relative overflow-hidden transition-all duration-300 group-hover:scale-125`}
                     style={{
                       animation: `float 6s ease-in-out infinite`,
@@ -127,7 +122,7 @@ const Index = () => {
                         <div className="absolute top-[35%] left-[55%] w-[28%] h-[20%] rounded-full bg-[#d4a574]/60 blur-sm" />
                       </div>
                     )}
-
+                    
                     {/* Stormy texture (Neptune-like) */}
                     {tool.type === "stormy" && (
                       <div className="absolute inset-0 opacity-60">
@@ -137,7 +132,7 @@ const Index = () => {
                         <div className="absolute bottom-[40%] left-[50%] w-[20%] h-[15%] rounded-full bg-black/30 blur-md" />
                       </div>
                     )}
-
+                    
                     {/* Rocky texture (Mars-like) */}
                     {tool.type === "rocky" && (
                       <div className="absolute inset-0 opacity-50">
@@ -152,33 +147,32 @@ const Index = () => {
                         <div className="absolute top-[35%] left-[60%] w-[15%] h-[15%] rounded-full bg-white/15 blur-md" />
                       </div>
                     )}
-
+                    
                     {/* Shadow to add depth */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40" />
-
+                    
                     {/* Icon in center */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">
                       <Icon className="h-8 w-8 text-white/90 drop-shadow-lg" />
                     </div>
-
+                    
                     {/* Rings (Saturn-like) */}
                     {tool.type === "ringed" && (
                       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                        <div
-                          className="absolute w-[135%] h-[35%] border-t-[8px] border-b-[8px] border-[#d4a574]/40 rounded-full rotate-[-15deg]"
-                          style={{ boxShadow: "inset 0 2px 8px rgba(0,0,0,0.3)" }}
-                        />
+                        <div className="absolute w-[135%] h-[35%] border-t-[8px] border-b-[8px] border-[#d4a574]/40 rounded-full rotate-[-15deg]" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)' }} />
                         <div className="absolute w-[125%] h-[30%] border-t-[6px] border-b-[6px] border-[#c08550]/30 rounded-full rotate-[-15deg]" />
                       </div>
                     )}
-
+                    
                     {/* Orbit ring */}
                     <div className="absolute inset-0 rounded-full border border-white/10 scale-110 group-hover:scale-125 transition-transform duration-300" />
                   </div>
-
+                  
                   {/* Planet label */}
                   <div className="text-center space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="text-sm font-semibold text-white whitespace-nowrap">{tool.title}</h3>
+                    <h3 className="text-sm font-semibold text-white whitespace-nowrap">
+                      {tool.title}
+                    </h3>
                   </div>
                 </div>
               </Link>
@@ -187,11 +181,11 @@ const Index = () => {
 
           {/* Orbit path indicator */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div
+            <div 
               className="rounded-full border border-white/5"
               style={{
-                width: "560px",
-                height: "560px",
+                width: '560px',
+                height: '560px',
               }}
             />
           </div>
