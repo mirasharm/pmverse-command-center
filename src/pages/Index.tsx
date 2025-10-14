@@ -95,11 +95,6 @@ const Index = () => {
                 key={tool.path} 
                 to={tool.path}
                 className="absolute group pointer-events-auto"
-                style={{
-                  animation: `orbit 50s linear infinite`,
-                  animationDelay: `-${(index * 50) / tools.length}s`,
-                  transformOrigin: 'center center',
-                }}
               >
                 <div 
                   className="relative flex flex-col items-center gap-3"
