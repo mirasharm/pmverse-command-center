@@ -86,7 +86,7 @@ const Index = () => {
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             const angle = (index * 360) / tools.length;
-            const orbitRadius = 2000;
+            const orbitRadius = 280;
 
             return (
               <Link
