@@ -92,10 +92,11 @@ const Index = () => {
               <Link
                 key={tool.path}
                 to={tool.path}
-                className="absolute group pointer-events-auto"
+                className="absolute group pointer-events-auto left-1/2 top-1/2"
                 style={{
                   animation: "orbit 50s linear infinite",
                   animationDelay: `-${(angle / 360) * 50}s`,
+                  transformOrigin: "center",
                 }}
               >
                 <div
