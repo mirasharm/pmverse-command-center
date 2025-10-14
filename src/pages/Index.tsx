@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
 import { FileText, Shield, BookOpen, Megaphone, Sparkles } from "lucide-react";
 
+const asteroids = [
+  { size: 8, top: '15%', left: '20%', duration: 45 },
+  { size: 12, top: '75%', left: '15%', duration: 60 },
+  { size: 6, top: '25%', left: '80%', duration: 50 },
+  { size: 10, top: '85%', left: '70%', duration: 55 },
+  { size: 7, top: '40%', left: '10%', duration: 48 },
+  { size: 9, top: '60%', left: '85%', duration: 52 },
+  { size: 5, top: '10%', left: '50%', duration: 58 },
+  { size: 11, top: '90%', left: '45%', duration: 47 },
+];
+
 const tools = [
   {
     title: "PRD Co-writer",
@@ -50,7 +61,7 @@ const tools = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden font-orbitron">
       {/* Starry background */}
       <div className="absolute inset-0 bg-black">
         {[...Array(200)].map((_, i) => (
@@ -67,20 +78,41 @@ const Index = () => {
           />
         ))}
       </div>
+
+      {/* Asteroids */}
+      {asteroids.map((asteroid, i) => (
+        <div
+          key={`asteroid-${i}`}
+          className="absolute rounded-full bg-gradient-to-br from-gray-400 via-gray-500 to-gray-600 opacity-40"
+          style={{
+            width: asteroid.size + 'px',
+            height: asteroid.size + 'px',
+            top: asteroid.top,
+            left: asteroid.left,
+            animation: `drift ${asteroid.duration}s infinite linear`,
+            boxShadow: '0 0 10px rgba(156, 163, 175, 0.3)',
+          }}
+        />
+      ))}
       
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         <div className="relative w-full max-w-6xl aspect-square flex items-center justify-center">
           {/* Central Header */}
           <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
             <div className="text-center space-y-4 max-w-md">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
-                <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-7xl font-black tracking-widest">
+                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]">
                   PMverse
                 </span>
               </h1>
-              <p className="text-sm md:text-base text-gray-400 font-light">
+              <p className="text-xs md:text-sm text-muted-foreground font-light tracking-[0.3em] uppercase">
                 AI-Powered Product Management Suite
               </p>
+              <div className="flex items-center justify-center gap-1">
+                <Sparkles className="h-3 w-3 text-primary animate-pulse" />
+                <Sparkles className="h-2 w-2 text-accent animate-pulse delay-75" />
+                <Sparkles className="h-3 w-3 text-secondary animate-pulse delay-150" />
+              </div>
             </div>
           </div>
 
@@ -102,9 +134,12 @@ const Index = () => {
                     transform: `rotate(${angle}deg) translateX(${orbitRadius}px) rotate(-${angle}deg)`,
                   }}
                 >
+                  {/* Outer orbit ring */}
+                  <div className="absolute inset-0 rounded-full border-2 border-primary/20 scale-150 group-hover:scale-[1.7] group-hover:border-primary/40 transition-all duration-500" />
+                  
                   {/* Planet */}
                   <div 
-                    className={`${tool.size} rounded-full bg-gradient-to-br ${tool.planetColor} ${tool.glowColor} relative overflow-hidden transition-all duration-300 group-hover:scale-125`}
+                    className={`${tool.size} rounded-full bg-gradient-to-br ${tool.planetColor} ${tool.glowColor} relative overflow-hidden transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.6)]`}
                     style={{
                       animation: `float 6s ease-in-out infinite`,
                       animationDelay: tool.delay,
@@ -153,16 +188,24 @@ const Index = () => {
                     
                     {/* Icon in center */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">
-                      <Icon className="h-8 w-8 text-white/90 drop-shadow-lg" />
+                      <Icon className="h-8 w-8 text-white/90 drop-shadow-lg group-hover:scale-110 transition-transform" />
                     </div>
                     
                     {/* Rings (Saturn-like) */}
                     {tool.type === "ringed" && (
-                      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                        <div className="absolute w-[135%] h-[35%] border-t-[8px] border-b-[8px] border-[#d4a574]/40 rounded-full rotate-[-15deg]" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)' }} />
+                      <div className="absolute inset-0 flex items-center justify-center overflow-visible">
+                        <div className="absolute w-[135%] h-[35%] border-t-[8px] border-b-[8px] border-[#d4a574]/40 rounded-full rotate-[-15deg]" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3), 0 0 20px rgba(212,165,116,0.2)' }} />
                         <div className="absolute w-[125%] h-[30%] border-t-[6px] border-b-[6px] border-[#c08550]/30 rounded-full rotate-[-15deg]" />
                       </div>
                     )}
+
+                    {/* Universal orbital rings for all planets */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      {/* Inner ring */}
+                      <div className="absolute w-[120%] h-[120%] rounded-full border border-primary/30 group-hover:border-primary/50 transition-colors" />
+                      {/* Outer ring */}
+                      <div className="absolute w-[140%] h-[140%] rounded-full border border-accent/20 group-hover:border-accent/40 transition-colors" />
+                    </div>
                     
                     {/* Orbit ring */}
                     <div className="absolute inset-0 rounded-full border border-white/10 scale-110 group-hover:scale-125 transition-transform duration-300" />
@@ -170,7 +213,7 @@ const Index = () => {
                   
                   {/* Planet label */}
                   <div className="text-center space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="text-sm font-semibold text-white whitespace-nowrap">
+                    <h3 className="text-sm font-bold text-white whitespace-nowrap tracking-wider drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]">
                       {tool.title}
                     </h3>
                   </div>
@@ -182,10 +225,11 @@ const Index = () => {
           {/* Orbit path indicator */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div 
-              className="rounded-full border border-white/5"
+              className="rounded-full border border-primary/10"
               style={{
                 width: '560px',
                 height: '560px',
+                boxShadow: '0 0 40px rgba(59, 130, 246, 0.1)',
               }}
             />
           </div>
