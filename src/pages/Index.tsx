@@ -20,7 +20,7 @@ const tools = [
     path: "/prd-reviewer",
     planetColor: "from-[#d4a574] via-[#c08550] to-[#8b5a2b]",
     glowColor: "shadow-[0_0_30px_rgba(212,165,116,0.4)]",
-    size: "w-48 h-48",
+    size: "w-44 h-44",
     delay: "1.5s",
     type: "ringed", // Saturn-like
   },
@@ -88,7 +88,7 @@ const Index = () => {
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             const angle = (index * 360) / tools.length;
-            const orbitRadius = 480;
+            const orbitRadius = 670;
             
             return (
               <Link 
@@ -163,9 +163,9 @@ const Index = () => {
                     
                     {/* Rings (Saturn-like) */}
                     {tool.type === "ringed" && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="absolute w-[160%] h-[35%] border-t-[8px] border-b-[8px] border-[#d4a574]/40 rounded-full rotate-[-15deg]" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)' }} />
-                        <div className="absolute w-[150%] h-[30%] border-t-[6px] border-b-[6px] border-[#c08550]/30 rounded-full rotate-[-15deg]" />
+                      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                        <div className="absolute w-[135%] h-[35%] border-t-[8px] border-b-[8px] border-[#d4a574]/40 rounded-full rotate-[-15deg]" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)' }} />
+                        <div className="absolute w-[125%] h-[30%] border-t-[6px] border-b-[6px] border-[#c08550]/30 rounded-full rotate-[-15deg]" />
                       </div>
                     )}
                     
@@ -189,8 +189,8 @@ const Index = () => {
             <div 
               className="rounded-full border border-white/5"
               style={{
-                width: '960px',
-                height: '960px',
+                width: '1340px',
+                height: '1340px',
               }}
             />
           </div>
