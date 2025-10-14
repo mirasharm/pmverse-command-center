@@ -95,11 +95,17 @@ const Index = () => {
                 key={tool.path} 
                 to={tool.path}
                 className="absolute group pointer-events-auto"
+                style={{
+                  animation: 'orbit 50s linear infinite',
+                  animationDelay: `-${(angle / 360) * 50}s`,
+                }}
               >
                 <div 
                   className="relative flex flex-col items-center gap-3"
                   style={{
-                    transform: `rotate(${angle}deg) translateX(${orbitRadius}px) rotate(-${angle}deg)`,
+                    transform: `translateX(${orbitRadius}px)`,
+                    animation: 'orbit 50s linear infinite reverse',
+                    animationDelay: `-${(angle / 360) * 50}s`,
                   }}
                 >
                   {/* Planet */}
