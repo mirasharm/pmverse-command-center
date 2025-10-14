@@ -48,14 +48,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Starry background */}
-      <div className="absolute inset-0">
-        {[...Array(150)].map((_, i) => (
+      <div className="absolute inset-0 bg-black">
+        {[...Array(200)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-foreground/30"
+            className="absolute rounded-full bg-white"
             style={{
-              width: Math.random() * 2 + 1 + 'px',
-              height: Math.random() * 2 + 1 + 'px',
+              width: Math.random() * 3 + 0.5 + 'px',
+              height: Math.random() * 3 + 0.5 + 'px',
               top: Math.random() * 100 + '%',
               left: Math.random() * 100 + '%',
               animation: `twinkle ${Math.random() * 3 + 2}s infinite ${Math.random() * 2}s`,
@@ -63,10 +63,6 @@ const Index = () => {
           />
         ))}
       </div>
-      
-      {/* Cosmic background effects */}
-      <div className="absolute inset-0 bg-gradient-stellar opacity-50" />
-      <div className="absolute inset-0 bg-gradient-nebula" />
       
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16">
