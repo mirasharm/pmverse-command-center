@@ -147,44 +147,56 @@ const Index = () => {
                   >
                     {/* Banded texture (Jupiter-like) */}
                     {tool.type === "banded" && (
-                      <div className="absolute inset-0 opacity-60">
-                        <div className="absolute w-full h-[15%] bg-black/30 top-[8%]" />
-                        <div className="absolute w-full h-[12%] bg-white/15 top-[25%]" />
-                        <div className="absolute w-full h-[18%] bg-black/25 top-[42%]" />
-                        <div className="absolute w-full h-[14%] bg-white/10 top-[63%]" />
-                        <div className="absolute w-full h-[10%] bg-black/20 top-[80%]" />
+                      <div className="absolute inset-0 opacity-70">
+                        <div className="absolute w-full h-[15%] bg-black/40 top-[8%] blur-[1px]" />
+                        <div className="absolute w-full h-[12%] bg-white/20 top-[25%] blur-[1px]" />
+                        <div className="absolute w-full h-[18%] bg-black/35 top-[42%] blur-[1px]" />
+                        <div className="absolute w-full h-[14%] bg-white/15 top-[63%] blur-[1px]" />
+                        <div className="absolute w-full h-[10%] bg-black/30 top-[80%] blur-[1px]" />
                         {/* Great Red Spot */}
-                        <div className="absolute top-[35%] left-[55%] w-[28%] h-[20%] rounded-full bg-[#d4a574]/60 blur-sm" />
+                        <div className="absolute top-[35%] left-[55%] w-[28%] h-[20%] rounded-full bg-[#e8b686]/70 blur-md" />
+                        <div className="absolute top-[37%] left-[57%] w-[22%] h-[16%] rounded-full bg-[#d4a574]/80 blur-sm" />
                       </div>
                     )}
                     
                     {/* Stormy texture (Neptune-like) */}
                     {tool.type === "stormy" && (
-                      <div className="absolute inset-0 opacity-60">
-                        <div className="absolute top-[18%] left-[12%] w-[38%] h-[28%] rounded-full bg-white/25 blur-lg" />
-                        <div className="absolute bottom-[22%] right-[18%] w-[42%] h-[32%] rounded-full bg-black/40 blur-xl" />
-                        <div className="absolute top-[48%] left-[28%] w-[28%] h-[22%] rounded-full bg-white/15 blur-lg" />
-                        <div className="absolute bottom-[40%] left-[50%] w-[20%] h-[15%] rounded-full bg-black/30 blur-md" />
+                      <div className="absolute inset-0 opacity-70">
+                        {/* Large storm systems */}
+                        <div className="absolute top-[18%] left-[12%] w-[38%] h-[28%] rounded-full bg-white/30 blur-xl" />
+                        <div className="absolute bottom-[22%] right-[18%] w-[42%] h-[32%] rounded-full bg-black/50 blur-2xl" />
+                        <div className="absolute top-[48%] left-[28%] w-[28%] h-[22%] rounded-full bg-white/20 blur-xl" />
+                        <div className="absolute bottom-[40%] left-[50%] w-[20%] h-[15%] rounded-full bg-black/40 blur-lg" />
+                        {/* Smaller cloud details */}
+                        <div className="absolute top-[30%] right-[25%] w-[18%] h-[14%] rounded-full bg-white/15 blur-md" />
+                        <div className="absolute bottom-[35%] right-[40%] w-[15%] h-[12%] rounded-full bg-black/25 blur-lg" />
                       </div>
                     )}
                     
                     {/* Rocky texture (Mars-like) */}
                     {tool.type === "rocky" && (
-                      <div className="absolute inset-0 opacity-50">
-                        {/* Large craters */}
-                        <div className="absolute top-[15%] left-[20%] w-[22%] h-[22%] rounded-full bg-black/40 blur-md" />
-                        <div className="absolute bottom-[28%] right-[22%] w-[18%] h-[18%] rounded-full bg-black/35 blur-sm" />
-                        <div className="absolute top-[42%] right-[32%] w-[15%] h-[15%] rounded-full bg-black/30 blur-sm" />
+                      <div className="absolute inset-0 opacity-60">
+                        {/* Large craters with depth */}
+                        <div className="absolute top-[15%] left-[20%] w-[22%] h-[22%] rounded-full bg-black/50 blur-md">
+                          <div className="absolute top-1 left-1 w-[80%] h-[80%] rounded-full bg-white/10 blur-sm" />
+                        </div>
+                        <div className="absolute bottom-[28%] right-[22%] w-[18%] h-[18%] rounded-full bg-black/45 blur-sm">
+                          <div className="absolute top-0.5 left-0.5 w-[70%] h-[70%] rounded-full bg-white/8 blur-sm" />
+                        </div>
+                        <div className="absolute top-[42%] right-[32%] w-[15%] h-[15%] rounded-full bg-black/40 blur-sm" />
                         {/* Medium craters */}
-                        <div className="absolute bottom-[18%] left-[28%] w-[20%] h-[20%] rounded-full bg-black/30 blur-md" />
-                        <div className="absolute top-[58%] left-[12%] w-[12%] h-[12%] rounded-full bg-black/25 blur-sm" />
-                        {/* Light spots */}
-                        <div className="absolute top-[35%] left-[60%] w-[15%] h-[15%] rounded-full bg-white/15 blur-md" />
+                        <div className="absolute bottom-[18%] left-[28%] w-[20%] h-[20%] rounded-full bg-black/40 blur-md" />
+                        <div className="absolute top-[58%] left-[12%] w-[12%] h-[12%] rounded-full bg-black/35 blur-sm" />
+                        <div className="absolute top-[70%] right-[15%] w-[10%] h-[10%] rounded-full bg-black/30 blur-sm" />
+                        {/* Highlands and valleys */}
+                        <div className="absolute top-[35%] left-[60%] w-[25%] h-[18%] rounded-full bg-white/12 blur-lg" />
+                        <div className="absolute bottom-[45%] left-[40%] w-[20%] h-[15%] rounded-full bg-black/20 blur-lg" />
                       </div>
                     )}
                     
-                    {/* Shadow to add depth */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40" />
+                    {/* Terminator line (day/night divide) and shadows */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/60" />
+                    <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-transparent to-black/30" />
                     
                     {/* Icon in center */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -198,17 +210,9 @@ const Index = () => {
                         <div className="absolute w-[125%] h-[30%] border-t-[6px] border-b-[6px] border-[#c08550]/30 rounded-full rotate-[-15deg]" />
                       </div>
                     )}
-
-                    {/* Universal orbital rings for all planets */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      {/* Inner ring */}
-                      <div className="absolute w-[120%] h-[120%] rounded-full border border-primary/30 group-hover:border-primary/50 transition-colors" />
-                      {/* Outer ring */}
-                      <div className="absolute w-[140%] h-[140%] rounded-full border border-accent/20 group-hover:border-accent/40 transition-colors" />
-                    </div>
                     
-                    {/* Orbit ring */}
-                    <div className="absolute inset-0 rounded-full border border-white/10 scale-110 group-hover:scale-125 transition-transform duration-300" />
+                    {/* Atmospheric glow */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-radial from-transparent via-transparent to-transparent" style={{ boxShadow: `inset -10px -10px 30px rgba(0,0,0,0.5), inset 10px 10px 30px rgba(255,255,255,0.1)` }} />
                   </div>
                   
                   {/* Planet label */}
