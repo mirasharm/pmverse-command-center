@@ -120,7 +120,7 @@ const Index = () => {
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             const angle = (index * 360) / tools.length;
-            const orbitRadius = 280;
+            const orbitRadius = 350;
             
             return (
               <Link 
@@ -134,9 +134,6 @@ const Index = () => {
                     transform: `rotate(${angle}deg) translateX(${orbitRadius}px) rotate(-${angle}deg)`,
                   }}
                 >
-                  {/* Outer orbit ring */}
-                  <div className="absolute inset-0 rounded-full border-2 border-primary/20 scale-150 group-hover:scale-[1.7] group-hover:border-primary/40 transition-all duration-500" />
-                  
                   {/* Planet */}
                   <div 
                     className={`${tool.size} rounded-full bg-gradient-to-br ${tool.planetColor} ${tool.glowColor} relative overflow-hidden transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.6)]`}
@@ -231,8 +228,8 @@ const Index = () => {
             <div 
               className="rounded-full border border-primary/10"
               style={{
-                width: '560px',
-                height: '560px',
+                width: '700px',
+                height: '700px',
                 boxShadow: '0 0 40px rgba(59, 130, 246, 0.1)',
               }}
             />
