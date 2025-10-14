@@ -7,8 +7,8 @@ const tools = [
     description: "Collaborate with AI to craft comprehensive product requirement documents",
     icon: FileText,
     path: "/prd-cowriter",
-    planetColor: "from-primary via-primary/60 to-primary/40",
-    glowColor: "shadow-[0_0_40px_rgba(34,211,238,0.6)]",
+    planetColor: "from-[#4a5568] via-[#2d3748] to-[#1a202c]",
+    glowColor: "shadow-[0_0_30px_rgba(74,85,104,0.4)]",
     size: "w-48 h-48",
     delay: "0s",
   },
@@ -17,8 +17,8 @@ const tools = [
     description: "Get AI-powered feedback on your product requirement documents",
     icon: Shield,
     path: "/prd-reviewer",
-    planetColor: "from-secondary via-secondary/60 to-secondary/40",
-    glowColor: "shadow-[0_0_40px_rgba(147,51,234,0.6)]",
+    planetColor: "from-[#c05621] via-[#9c4221] to-[#7c2d12]",
+    glowColor: "shadow-[0_0_30px_rgba(192,86,33,0.4)]",
     size: "w-52 h-52",
     delay: "1.5s",
   },
@@ -27,8 +27,8 @@ const tools = [
     description: "Learn and share PM knowledge with AI-powered insights",
     icon: BookOpen,
     path: "/educator",
-    planetColor: "from-accent via-accent/60 to-accent/40",
-    glowColor: "shadow-[0_0_40px_rgba(236,72,153,0.6)]",
+    planetColor: "from-[#2563eb] via-[#1e40af] to-[#1e3a8a]",
+    glowColor: "shadow-[0_0_30px_rgba(37,99,235,0.4)]",
     size: "w-44 h-44",
     delay: "3s",
   },
@@ -37,8 +37,8 @@ const tools = [
     description: "Create multi-format release communications in seconds",
     icon: Megaphone,
     path: "/release-pr",
-    planetColor: "from-primary via-accent/60 to-secondary/40",
-    glowColor: "shadow-[0_0_40px_rgba(34,211,238,0.5)]",
+    planetColor: "from-[#dc2626] via-[#991b1b] to-[#7f1d1d]",
+    glowColor: "shadow-[0_0_30px_rgba(220,38,38,0.4)]",
     size: "w-56 h-56",
     delay: "4.5s",
   },
@@ -90,41 +90,50 @@ const Index = () => {
           </div>
 
           {/* Planets Grid */}
-          <div className="relative min-h-[600px] flex items-center justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 lg:gap-32">
+          <div className="relative min-h-[700px] flex items-center justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-28 lg:gap-36">
               {tools.map((tool, index) => {
                 const Icon = tool.icon;
                 return (
                   <Link 
                     key={tool.path} 
                     to={tool.path}
-                    className="group relative flex items-center justify-center"
+                    className="group relative flex flex-col items-center justify-center gap-6"
                     style={{
                       animation: `float 6s ease-in-out infinite`,
                       animationDelay: tool.delay,
                     }}
                   >
                     {/* Planet */}
-                    <div className={`${tool.size} rounded-full bg-gradient-to-br ${tool.planetColor} ${tool.glowColor} relative overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:brightness-110`}>
-                      {/* Planet surface texture */}
-                      <div className="absolute inset-0 opacity-20">
-                        <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 rounded-full bg-foreground/10 blur-xl" />
-                        <div className="absolute bottom-1/3 right-1/4 w-1/4 h-1/4 rounded-full bg-foreground/10 blur-xl" />
+                    <div className={`${tool.size} rounded-full bg-gradient-to-br ${tool.planetColor} ${tool.glowColor} relative overflow-hidden transition-all duration-300 group-hover:scale-110`}>
+                      {/* Planet surface texture - craters and terrain */}
+                      <div className="absolute inset-0 opacity-30">
+                        <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 rounded-full bg-black/20 blur-md" />
+                        <div className="absolute bottom-1/3 right-1/4 w-1/4 h-1/4 rounded-full bg-black/20 blur-md" />
+                        <div className="absolute top-1/2 right-1/3 w-1/5 h-1/5 rounded-full bg-black/15 blur-sm" />
+                        <div className="absolute bottom-1/4 left-1/3 w-1/6 h-1/6 rounded-full bg-black/15 blur-sm" />
                       </div>
+                      
+                      {/* Shadow to add depth */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40" />
                       
                       {/* Icon in center */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <Icon className="h-12 w-12 text-foreground drop-shadow-lg" />
+                        <Icon className="h-10 w-10 text-foreground/90 drop-shadow-lg" />
                       </div>
                       
                       {/* Orbit ring */}
-                      <div className="absolute inset-0 rounded-full border-2 border-foreground/10 scale-110 group-hover:scale-125 transition-transform duration-300" />
+                      <div className="absolute inset-0 rounded-full border border-foreground/10 scale-110 group-hover:scale-125 transition-transform duration-300" />
                     </div>
                     
-                    {/* Planet info card on hover */}
-                    <div className="absolute top-full mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/90 backdrop-blur-sm border border-border/50 rounded-lg p-4 w-64 shadow-xl z-10">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{tool.title}</h3>
-                      <p className="text-sm text-muted-foreground">{tool.description}</p>
+                    {/* Planet label - always visible */}
+                    <div className="text-center space-y-2">
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {tool.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground max-w-[200px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {tool.description}
+                      </p>
                     </div>
                   </Link>
                 );
