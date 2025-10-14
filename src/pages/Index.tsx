@@ -88,7 +88,7 @@ const Index = () => {
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             const angle = (index * 360) / tools.length;
-            const orbitRadius = 380;
+            const orbitRadius = 480;
             
             return (
               <Link 
@@ -189,8 +189,8 @@ const Index = () => {
             <div 
               className="rounded-full border border-white/5"
               style={{
-                width: '760px',
-                height: '760px',
+                width: '960px',
+                height: '960px',
               }}
             />
           </div>
