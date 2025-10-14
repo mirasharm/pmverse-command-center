@@ -88,7 +88,7 @@ const Index = () => {
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             const angle = (index * 360) / tools.length;
-            const orbitRadius = 320;
+            const orbitRadius = 380;
             
             return (
               <Link 
@@ -117,32 +117,39 @@ const Index = () => {
                   >
                     {/* Banded texture (Jupiter-like) */}
                     {tool.type === "banded" && (
-                      <div className="absolute inset-0">
-                        <div className="absolute w-full h-[15%] bg-black/20 top-[10%]" />
-                        <div className="absolute w-full h-[12%] bg-white/10 top-[28%]" />
-                        <div className="absolute w-full h-[18%] bg-black/15 top-[45%]" />
-                        <div className="absolute w-full h-[10%] bg-white/5 top-[68%]" />
-                        <div className="absolute top-[35%] left-[60%] w-[25%] h-[18%] rounded-full bg-[#d4a574]/40 blur-sm" />
+                      <div className="absolute inset-0 opacity-60">
+                        <div className="absolute w-full h-[15%] bg-black/30 top-[8%]" />
+                        <div className="absolute w-full h-[12%] bg-white/15 top-[25%]" />
+                        <div className="absolute w-full h-[18%] bg-black/25 top-[42%]" />
+                        <div className="absolute w-full h-[14%] bg-white/10 top-[63%]" />
+                        <div className="absolute w-full h-[10%] bg-black/20 top-[80%]" />
+                        {/* Great Red Spot */}
+                        <div className="absolute top-[35%] left-[55%] w-[28%] h-[20%] rounded-full bg-[#d4a574]/60 blur-sm" />
                       </div>
                     )}
                     
                     {/* Stormy texture (Neptune-like) */}
                     {tool.type === "stormy" && (
-                      <div className="absolute inset-0 opacity-40">
-                        <div className="absolute top-[20%] left-[15%] w-[35%] h-[25%] rounded-full bg-white/20 blur-lg" />
-                        <div className="absolute bottom-[25%] right-[20%] w-[40%] h-[30%] rounded-full bg-black/30 blur-xl" />
-                        <div className="absolute top-[50%] left-[30%] w-[25%] h-[20%] rounded-full bg-white/10 blur-md" />
+                      <div className="absolute inset-0 opacity-60">
+                        <div className="absolute top-[18%] left-[12%] w-[38%] h-[28%] rounded-full bg-white/25 blur-lg" />
+                        <div className="absolute bottom-[22%] right-[18%] w-[42%] h-[32%] rounded-full bg-black/40 blur-xl" />
+                        <div className="absolute top-[48%] left-[28%] w-[28%] h-[22%] rounded-full bg-white/15 blur-lg" />
+                        <div className="absolute bottom-[40%] left-[50%] w-[20%] h-[15%] rounded-full bg-black/30 blur-md" />
                       </div>
                     )}
                     
                     {/* Rocky texture (Mars-like) */}
                     {tool.type === "rocky" && (
-                      <div className="absolute inset-0 opacity-40">
-                        <div className="absolute top-[15%] left-[20%] w-[20%] h-[20%] rounded-full bg-black/30 blur-md" />
-                        <div className="absolute bottom-[30%] right-[25%] w-[15%] h-[15%] rounded-full bg-black/25 blur-sm" />
-                        <div className="absolute top-[45%] right-[35%] w-[12%] h-[12%] rounded-full bg-black/20 blur-sm" />
-                        <div className="absolute bottom-[20%] left-[30%] w-[18%] h-[18%] rounded-full bg-black/20 blur-md" />
-                        <div className="absolute top-[60%] left-[15%] w-[10%] h-[10%] rounded-full bg-white/10 blur-sm" />
+                      <div className="absolute inset-0 opacity-50">
+                        {/* Large craters */}
+                        <div className="absolute top-[15%] left-[20%] w-[22%] h-[22%] rounded-full bg-black/40 blur-md" />
+                        <div className="absolute bottom-[28%] right-[22%] w-[18%] h-[18%] rounded-full bg-black/35 blur-sm" />
+                        <div className="absolute top-[42%] right-[32%] w-[15%] h-[15%] rounded-full bg-black/30 blur-sm" />
+                        {/* Medium craters */}
+                        <div className="absolute bottom-[18%] left-[28%] w-[20%] h-[20%] rounded-full bg-black/30 blur-md" />
+                        <div className="absolute top-[58%] left-[12%] w-[12%] h-[12%] rounded-full bg-black/25 blur-sm" />
+                        {/* Light spots */}
+                        <div className="absolute top-[35%] left-[60%] w-[15%] h-[15%] rounded-full bg-white/15 blur-md" />
                       </div>
                     )}
                     
@@ -182,8 +189,8 @@ const Index = () => {
             <div 
               className="rounded-full border border-white/5"
               style={{
-                width: '640px',
-                height: '640px',
+                width: '760px',
+                height: '760px',
               }}
             />
           </div>
