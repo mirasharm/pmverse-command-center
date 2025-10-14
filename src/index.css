@@ -80,6 +80,15 @@ All colors MUST be HSL.
       opacity: 1;
     }
   }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 @layer base {
