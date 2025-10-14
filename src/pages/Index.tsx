@@ -7,40 +7,44 @@ const tools = [
     description: "Collaborate with AI to craft comprehensive product requirement documents",
     icon: FileText,
     path: "/prd-cowriter",
-    planetColor: "from-[#4a5568] via-[#2d3748] to-[#1a202c]",
-    glowColor: "shadow-[0_0_30px_rgba(74,85,104,0.4)]",
-    size: "w-48 h-48",
+    planetColor: "from-[#c2b5a3] via-[#8b7355] to-[#5c4a3a]",
+    glowColor: "shadow-[0_0_30px_rgba(194,181,163,0.4)]",
+    size: "w-40 h-40",
     delay: "0s",
+    type: "banded", // Jupiter-like
   },
   {
     title: "PRD Reviewer",
     description: "Get AI-powered feedback on your product requirement documents",
     icon: Shield,
     path: "/prd-reviewer",
-    planetColor: "from-[#c05621] via-[#9c4221] to-[#7c2d12]",
-    glowColor: "shadow-[0_0_30px_rgba(192,86,33,0.4)]",
-    size: "w-52 h-52",
+    planetColor: "from-[#d4a574] via-[#c08550] to-[#8b5a2b]",
+    glowColor: "shadow-[0_0_30px_rgba(212,165,116,0.4)]",
+    size: "w-48 h-48",
     delay: "1.5s",
+    type: "ringed", // Saturn-like
   },
   {
     title: "Mini Educator",
     description: "Learn and share PM knowledge with AI-powered insights",
     icon: BookOpen,
     path: "/educator",
-    planetColor: "from-[#2563eb] via-[#1e40af] to-[#1e3a8a]",
-    glowColor: "shadow-[0_0_30px_rgba(37,99,235,0.4)]",
-    size: "w-44 h-44",
+    planetColor: "from-[#4a7ba7] via-[#2e5984] to-[#1a3a5c]",
+    glowColor: "shadow-[0_0_30px_rgba(74,123,167,0.4)]",
+    size: "w-36 h-36",
     delay: "3s",
+    type: "stormy", // Neptune-like
   },
   {
     title: "Release PR",
     description: "Create multi-format release communications in seconds",
     icon: Megaphone,
     path: "/release-pr",
-    planetColor: "from-[#dc2626] via-[#991b1b] to-[#7f1d1d]",
-    glowColor: "shadow-[0_0_30px_rgba(220,38,38,0.4)]",
-    size: "w-56 h-56",
+    planetColor: "from-[#b8724e] via-[#8b4513] to-[#5c2e0f]",
+    glowColor: "shadow-[0_0_30px_rgba(184,114,78,0.4)]",
+    size: "w-44 h-44",
     delay: "4.5s",
+    type: "rocky", // Mars-like
   },
 ];
 
@@ -84,7 +88,7 @@ const Index = () => {
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             const angle = (index * 360) / tools.length;
-            const orbitRadius = 280;
+            const orbitRadius = 320;
             
             return (
               <Link 
@@ -92,8 +96,8 @@ const Index = () => {
                 to={tool.path}
                 className="absolute group pointer-events-auto"
                 style={{
-                  animation: `orbit 40s linear infinite`,
-                  animationDelay: `-${(index * 40) / tools.length}s`,
+                  animation: `orbit 50s linear infinite`,
+                  animationDelay: `-${(index * 50) / tools.length}s`,
                   transformOrigin: 'center center',
                 }}
               >
@@ -111,21 +115,52 @@ const Index = () => {
                       animationDelay: tool.delay,
                     }}
                   >
-                    {/* Planet surface texture - craters and terrain */}
-                    <div className="absolute inset-0 opacity-30">
-                      <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 rounded-full bg-black/20 blur-md" />
-                      <div className="absolute bottom-1/3 right-1/4 w-1/4 h-1/4 rounded-full bg-black/20 blur-md" />
-                      <div className="absolute top-1/2 right-1/3 w-1/5 h-1/5 rounded-full bg-black/15 blur-sm" />
-                      <div className="absolute bottom-1/4 left-1/3 w-1/6 h-1/6 rounded-full bg-black/15 blur-sm" />
-                    </div>
+                    {/* Banded texture (Jupiter-like) */}
+                    {tool.type === "banded" && (
+                      <div className="absolute inset-0">
+                        <div className="absolute w-full h-[15%] bg-black/20 top-[10%]" />
+                        <div className="absolute w-full h-[12%] bg-white/10 top-[28%]" />
+                        <div className="absolute w-full h-[18%] bg-black/15 top-[45%]" />
+                        <div className="absolute w-full h-[10%] bg-white/5 top-[68%]" />
+                        <div className="absolute top-[35%] left-[60%] w-[25%] h-[18%] rounded-full bg-[#d4a574]/40 blur-sm" />
+                      </div>
+                    )}
+                    
+                    {/* Stormy texture (Neptune-like) */}
+                    {tool.type === "stormy" && (
+                      <div className="absolute inset-0 opacity-40">
+                        <div className="absolute top-[20%] left-[15%] w-[35%] h-[25%] rounded-full bg-white/20 blur-lg" />
+                        <div className="absolute bottom-[25%] right-[20%] w-[40%] h-[30%] rounded-full bg-black/30 blur-xl" />
+                        <div className="absolute top-[50%] left-[30%] w-[25%] h-[20%] rounded-full bg-white/10 blur-md" />
+                      </div>
+                    )}
+                    
+                    {/* Rocky texture (Mars-like) */}
+                    {tool.type === "rocky" && (
+                      <div className="absolute inset-0 opacity-40">
+                        <div className="absolute top-[15%] left-[20%] w-[20%] h-[20%] rounded-full bg-black/30 blur-md" />
+                        <div className="absolute bottom-[30%] right-[25%] w-[15%] h-[15%] rounded-full bg-black/25 blur-sm" />
+                        <div className="absolute top-[45%] right-[35%] w-[12%] h-[12%] rounded-full bg-black/20 blur-sm" />
+                        <div className="absolute bottom-[20%] left-[30%] w-[18%] h-[18%] rounded-full bg-black/20 blur-md" />
+                        <div className="absolute top-[60%] left-[15%] w-[10%] h-[10%] rounded-full bg-white/10 blur-sm" />
+                      </div>
+                    )}
                     
                     {/* Shadow to add depth */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40" />
                     
                     {/* Icon in center */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
                       <Icon className="h-8 w-8 text-white/90 drop-shadow-lg" />
                     </div>
+                    
+                    {/* Rings (Saturn-like) */}
+                    {tool.type === "ringed" && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="absolute w-[160%] h-[35%] border-t-[8px] border-b-[8px] border-[#d4a574]/40 rounded-full rotate-[-15deg]" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.3)' }} />
+                        <div className="absolute w-[150%] h-[30%] border-t-[6px] border-b-[6px] border-[#c08550]/30 rounded-full rotate-[-15deg]" />
+                      </div>
+                    )}
                     
                     {/* Orbit ring */}
                     <div className="absolute inset-0 rounded-full border border-white/10 scale-110 group-hover:scale-125 transition-transform duration-300" />
@@ -147,8 +182,8 @@ const Index = () => {
             <div 
               className="rounded-full border border-white/5"
               style={{
-                width: '560px',
-                height: '560px',
+                width: '640px',
+                height: '640px',
               }}
             />
           </div>
